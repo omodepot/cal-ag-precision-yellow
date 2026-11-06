@@ -415,3 +415,61 @@
     border-bottom: 1px solid #10271f;
   }
 }
+
+/* Application selector: remove dead space and preview exact destinations */
+.problem { align-items: stretch; }
+.selector-grid { align-content: start; }
+.selector-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.selector-preview a {
+  position: relative;
+  display: block;
+  min-height: 250px;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+}
+.selector-preview a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 32%, rgba(6,28,21,.88));
+}
+.selector-preview img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+.selector-preview a:hover img { transform: scale(1.035); }
+.selector-preview span {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+}
+.selector-preview small,
+.selector-preview strong { display: block; }
+.selector-preview small {
+  margin-bottom: 7px;
+  color: #def414;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.selector-preview strong { font-size: 18px; line-height: 1.2; }
+#product-mowers,
+#product-shredders,
+#product-sprayers,
+#product-sweepers,
+#system-shredding { scroll-margin-top: 110px; }
+@media (max-width: 900px) {
+  .selector-preview { grid-template-columns: 1fr; }
+  .selector-preview a, .selector-preview img { min-height: 220px; }
+}
