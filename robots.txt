@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /
 # Preview updated 2026-11-05
+# GitHub Pages deployment trigger
